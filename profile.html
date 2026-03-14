@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>123Greetings - Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="profile-page">
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <img src="./assets/123greet-logo.png" alt="123Greetings" class="brand__logo" />
+      </a>
+
+      <nav class="nav__links">
+        <a href="#" class="nav__link">Home</a>
+        <a href="#" class="nav__link">Categories</a>
+        <a href="#" class="nav__link">Reminders</a>
+        <a href="tracker.html" class="nav__link">Tracker</a>
+      </nav>
+
+      <a href="#" class="nav__action" id="logoutBtn">Log out</a>
+    </div>
+  </header>
+
+  <!-- PAGE -->
+  <main class="page">
+    <section class="layout profile-layout">
+      <!-- LEFT COLUMN -->
+      <div class="profile-main">
+        <section class="card">
+          <div class="profile-header">
+            <div class="profile-avatar" aria-hidden="true">SJ</div>
+            <div class="profile-identity">
+              <h1 class="card__title profile-name" id="profileNameText">Sarah Johnson</h1>
+              <p class="card__subtitle profile-email" id="profileEmailText">sarah.johnson@email.com</p>
+            </div>
+          </div>
+
+          <div class="profile-actions">
+            <button class="btn-primary btn-primary--inline" type="button" id="editProfileBtn">Edit Profile</button>
+            <button class="btn-secondary" type="button" id="changePhotoBtn">Change Photo</button>
+          </div>
+
+          <p class="helper profile-progress-line">Profile completion: <span id="profileCompletionText">10%</span></p>
+          <div class="profile-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+            <span class="profile-progress__fill" id="profileProgressFill"></span>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card__head">
+            <h2 class="benefits__title">Profile Information</h2>
+            <button class="btn-secondary profile-update-btn" type="button" id="updateProfileBtn" aria-label="Update profile information">
+              <svg class="profile-update__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 20l3.5-.7L18 8.8a2 2 0 0 0 0-2.8l-.9-.9a2 2 0 0 0-2.8 0L3.8 15.6 3 19.9z"></path>
+                <path d="M13.5 5.9l4.6 4.6"></path>
+              </svg>
+              <span>Update</span>
+            </button>
+          </div>
+
+          <div id="profileDisplay" class="profile-display">
+            <div class="profile-row">
+              <span class="muted">Full Name</span>
+              <p id="displayName">Sarah Johnson</p>
+            </div>
+            <div class="profile-row">
+              <span class="muted">Date of Birth</span>
+              <p id="displayDob">March 14, 1995</p>
+            </div>
+            <div class="profile-row">
+              <span class="muted">Gender</span>
+              <p id="displayGender">Female</p>
+            </div>
+            <div class="profile-row">
+              <span class="muted">Description</span>
+              <p id="displayDescription">Loves sending thoughtful e-cards to family and friends.</p>
+            </div>
+          </div>
+
+          <form id="profileEditForm" class="profile-edit" autocomplete="off">
+            <div class="field">
+              <label class="label" for="editName">Full Name</label>
+              <input id="editName" class="input" type="text" value="Sarah Johnson" />
+            </div>
+
+            <div class="field">
+              <label class="label" for="editEmail">Email</label>
+              <input id="editEmail" class="input" type="email" value="sarah.johnson@email.com" />
+            </div>
+
+            <div class="field">
+              <label class="label">Date of Birth</label>
+              <div class="dob">
+                <div class="select">
+                  <select id="editMonth" class="input">
+                    <option>January</option>
+                    <option>February</option>
+                    <option selected>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                </div>
+                <div class="select">
+                  <select id="editDay" class="input">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option selected>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                </div>
+                <div class="select">
+                  <select id="editYear" class="input">
+                    <option>1990</option>
+                    <option>1991</option>
+                    <option>1992</option>
+                    <option>1993</option>
+                    <option>1994</option>
+                    <option selected>1995</option>
+                    <option>1996</option>
+                    <option>1997</option>
+                    <option>1998</option>
+                    <option>1999</option>
+                    <option>2000</option>
+                    <option>2001</option>
+                    <option>2002</option>
+                    <option>2003</option>
+                    <option>2004</option>
+                    <option>2005</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="editGender">Gender</label>
+              <select id="editGender" class="input">
+                <option selected>Female</option>
+                <option>Male</option>
+                <option>Non-binary</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="label" for="editDescription">Description</label>
+              <textarea id="editDescription" class="input profile-textarea">Loves sending thoughtful e-cards to family and friends.</textarea>
+            </div>
+
+            <div class="profile-actions">
+              <button class="btn-primary btn-primary--inline" type="submit">Save Changes</button>
+              <button class="btn-secondary" type="button" id="cancelEditBtn">Cancel</button>
+            </div>
+          </form>
+        </section>
+
+        <div class="profile-subgrid">
+          <section class="card profile-mini-card">
+            <h2 class="benefits__title">Connections / Address Book</h2>
+            <p class="profile-empty">Save contacts for quick card sending.</p>
+            <div class="profile-actions">
+              <button class="btn-primary btn-primary--inline" type="button" id="addContactBtn">Add Contact</button>
+              <button class="btn-secondary" type="button" id="importContactsBtn">Import Contacts</button>
+            </div>
+          </section>
+
+          <section class="card profile-mini-card">
+            <h2 class="benefits__title">Upcoming Birthdays</h2>
+            <p class="profile-empty">No upcoming birthdays yet.</p>
+            <button class="btn-secondary" type="button" id="addBirthdayBtn">Add birthday reminder</button>
+          </section>
+
+          <section class="card profile-mini-card">
+            <h2 class="benefits__title">Upcoming Events</h2>
+            <p class="profile-empty">No upcoming events yet.</p>
+            <button class="btn-secondary" type="button" id="addEventBtn">Create event reminder</button>
+          </section>
+
+          <section class="card profile-mini-card">
+            <h2 class="benefits__title">Ecards Received</h2>
+            <p class="profile-empty">No e-cards received yet.</p>
+            <a href="index.html" class="btn-secondary" id="browseCardsBtn">Browse cards</a>
+          </section>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="profile-side">
+        <section class="card">
+          <h2 class="benefits__title">Complete your profile</h2>
+          <p class="helper">Finish these quick steps to unlock more features.</p>
+
+          <div class="profile-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+            <span class="profile-progress__fill" style="width:10%;"></span>
+          </div>
+
+          <ul class="profile-checklist">
+            <li><span class="badge badge--blue">1</span> Add photo</li>
+            <li><span class="badge badge--violet">2</span> Add DOB</li>
+            <li><span class="badge badge--green">3</span> Add a contact</li>
+          </ul>
+
+          <button class="btn-secondary" type="button" id="continueBtn">Continue</button>
+        </section>
+
+        <section class="card">
+          <h2 class="benefits__title">Help &amp; FAQs</h2>
+          <div class="faq-list">
+            <button class="faq-item" type="button">How do I edit my reminder settings?</button>
+            <button class="faq-item" type="button">Can I import contacts from email?</button>
+            <button class="faq-item" type="button">How do I schedule card delivery?</button>
+            <button class="faq-item" type="button">Where can I manage my notifications?</button>
+            <button class="faq-item" type="button">How do I change my password?</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="benefits__title">Greeting Card Preview</h2>
+          <div class="greeting-preview">
+            <div class="greeting-preview__tag">Featured</div>
+            <p class="greeting-preview__occasion">Birthday Special</p>
+            <h3 class="greeting-preview__title">Make someone smile today</h3>
+            <p class="greeting-preview__text">Pick a card style, add a sweet message, and schedule delivery instantly.</p>
+            <a href="index.html" class="btn-secondary greeting-preview__cta">Browse card themes</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="benefits__title">Send Feedback</h2>
+          <p class="helper">Tell us what we can improve.</p>
+          <div class="field">
+            <textarea id="feedbackMessage" class="input profile-textarea" placeholder="Share your feedback"></textarea>
+          </div>
+          <div class="profile-actions">
+            <button class="btn-primary btn-primary--inline" type="button" id="sendFeedbackBtn">Send Feedback</button>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      Profile updated successfully!
+    </div>
+  </main>
+
+  <script src="profile.js"></script>
+</body>
+</html>

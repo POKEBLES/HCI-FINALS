@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Activity Tracker </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="tracker-page">
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <img src="./assets/123greet-logo.png" alt="123Greetings" class="brand__logo" />
+      </a>
+
+      <nav class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="#" class="nav__link">Categories</a>
+        <a href="#" class="nav__link">Reminders</a>
+        <a href="tracker.html" class="nav__link nav__link--current">Tracker</a>
+      </nav>
+
+      <a href="#" class="nav__action" id="logoutBtn">Log out</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="tracker-shell">
+      <section class="card tracker-hero">
+        <div class="tracker-hero__intro">
+          <p class="tracker-kicker">Activity Tracker</p>
+          <h1 class="card__title tracker-hero__title">Track My Card</h1>
+          <p class="card__subtitle tracker-hero__subtitle">View the delivery status of your sent and scheduled e-cards.</p>
+        </div>
+
+        <div class="tracker-toolbar">
+          <label class="tracker-search" for="trackerSearch">
+            <svg class="tracker-search__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <path d="M16 16l4 4"></path>
+            </svg>
+            <input id="trackerSearch" class="tracker-search__input" type="search" placeholder="Search recipient or occasion" />
+          </label>
+
+          <div class="tracker-toolbar__lower">
+            <div class="tracker-filters" role="tablist" aria-label="Filter cards by status">
+              <button class="tracker-filter is-active" type="button" data-filter="all">All</button>
+              <button class="tracker-filter" type="button" data-filter="draft">Drafts</button>
+              <button class="tracker-filter" type="button" data-filter="scheduled">Scheduled</button>
+              <button class="tracker-filter" type="button" data-filter="sent">Sent</button>
+              <button class="tracker-filter" type="button" data-filter="viewed">Viewed</button>
+            </div>
+
+            <label class="tracker-sort" for="trackerSort">
+              <span class="tracker-sort__label">Sort</span>
+              <select id="trackerSort" class="tracker-sort__select">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="tracker-content">
+        <section class="card tracker-list-card">
+          <div class="tracker-list-card__head">
+            <div>
+              <h2 class="benefits__title">Card Activity</h2>
+              <p class="helper" id="trackerResultCount">0 cards</p>
+            </div>
+            <a href="index.html" class="btn-secondary tracker-list-card__cta">Create new card</a>
+          </div>
+
+          <div class="tracker-list" id="trackerList"></div>
+
+          <div class="tracker-empty" id="trackerEmptyState" hidden>
+            <div class="tracker-empty__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7.5h16"></path>
+                <path d="M7 7.5V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.5"></path>
+                <path d="M6 7.5h12l-1 11a2 2 0 0 1-2 1.8H9A2 2 0 0 1 7 18.5z"></path>
+              </svg>
+            </div>
+            <h3 class="tracker-empty__title">No tracked cards yet.</h3>
+            <p class="tracker-empty__text">Try a different filter or start with a fresh e-card.</p>
+            <a href="index.html" class="btn-primary tracker-empty__cta">Browse cards</a>
+          </div>
+        </section>
+
+        <aside class="tracker-side">
+          <section class="card tracker-legend-card">
+            <h2 class="benefits__title">Status Legend</h2>
+            <div class="tracker-legend-list">
+              <div class="tracker-legend-item">
+                <span class="tracker-status tracker-status--draft">
+                  <svg class="tracker-status__icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 18l4-4 3 3 5-6"></path>
+                  </svg>
+                  Draft
+                </span>
+                <p class="tracker-legend-item__text">Prepared but not scheduled or sent.</p>
+              </div>
+              <div class="tracker-legend-item">
+                <span class="tracker-status tracker-status--scheduled">
+                  <svg class="tracker-status__icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8"></circle>
+                    <path d="M12 8v4l2.5 1.5"></path>
+                  </svg>
+                  Scheduled
+                </span>
+                <p class="tracker-legend-item__text">Queued for automatic delivery.</p>
+              </div>
+              <div class="tracker-legend-item">
+                <span class="tracker-status tracker-status--sent">
+                  <svg class="tracker-status__icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 12l5 5 11-11"></path>
+                  </svg>
+                  Sent
+                </span>
+                <p class="tracker-legend-item__text">Delivered to the recipient inbox.</p>
+              </div>
+              <div class="tracker-legend-item">
+                <span class="tracker-status tracker-status--viewed">
+                  <svg class="tracker-status__icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"></path>
+                    <circle cx="12" cy="12" r="2.5"></circle>
+                  </svg>
+                  Viewed
+                </span>
+                <p class="tracker-legend-item__text">Opened and seen by the recipient.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="card tracker-overview-card">
+            <h2 class="benefits__title">Quick Overview</h2>
+            <div class="tracker-stats">
+              <div class="tracker-stat tracker-stat--draft">
+                <span class="tracker-stat__label">Drafts</span>
+                <strong class="tracker-stat__value" id="statDraft">0</strong>
+              </div>
+              <div class="tracker-stat tracker-stat--scheduled">
+                <span class="tracker-stat__label">Scheduled</span>
+                <strong class="tracker-stat__value" id="statScheduled">0</strong>
+              </div>
+              <div class="tracker-stat tracker-stat--sent">
+                <span class="tracker-stat__label">Sent</span>
+                <strong class="tracker-stat__value" id="statSent">0</strong>
+              </div>
+              <div class="tracker-stat tracker-stat--viewed">
+                <span class="tracker-stat__label">Viewed</span>
+                <strong class="tracker-stat__value" id="statViewed">0</strong>
+              </div>
+            </div>
+            <p class="tracker-overview__note" id="trackerOverviewNote">Latest activity will appear here.</p>
+          </section>
+        </aside>
+      </section>
+    </section>
+
+    <div class="tracker-modal" id="trackerModal" hidden>
+      <div class="tracker-modal__backdrop" data-close-modal="true"></div>
+      <div class="card tracker-modal__panel" role="dialog" aria-modal="true" aria-labelledby="trackerModalTitle">
+        <div class="tracker-modal__head">
+          <div>
+            <p class="tracker-kicker">Card details</p>
+            <h2 class="benefits__title" id="trackerModalTitle">Card details</h2>
+          </div>
+          <button class="tracker-icon-btn" type="button" id="closeModalBtn" aria-label="Close details panel">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="tracker-modal__body">
+          <div class="tracker-modal__preview" id="modalThumbnail"></div>
+
+          <div class="tracker-modal__content">
+            <div class="tracker-detail-grid">
+              <div class="tracker-detail-card">
+                <span class="muted">Recipient</span>
+                <p id="modalRecipientName">Recipient</p>
+              </div>
+              <div class="tracker-detail-card">
+                <span class="muted">Email</span>
+                <p id="modalRecipientEmail">email@example.com</p>
+              </div>
+              <div class="tracker-detail-card">
+                <span class="muted">Occasion</span>
+                <p id="modalOccasion">Occasion</p>
+              </div>
+              <div class="tracker-detail-card">
+                <span class="muted">Delivery</span>
+                <p id="modalDeliveryType">Send now</p>
+              </div>
+            </div>
+
+            <div class="tracker-message-preview">
+              <span class="muted">Message preview</span>
+              <p id="modalMessagePreview">Message preview text</p>
+            </div>
+
+            <div class="tracker-timeline">
+              <div class="tracker-timeline__step" data-step="prepared">
+                <span class="tracker-timeline__dot"></span>
+                <span>Prepared</span>
+              </div>
+              <div class="tracker-timeline__step" data-step="scheduled">
+                <span class="tracker-timeline__dot"></span>
+                <span>Scheduled</span>
+              </div>
+              <div class="tracker-timeline__step" data-step="sent">
+                <span class="tracker-timeline__dot"></span>
+                <span>Sent</span>
+              </div>
+              <div class="tracker-timeline__step" data-step="viewed">
+                <span class="tracker-timeline__dot"></span>
+                <span>Viewed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Tracker updated!</div>
+  </main>
+
+  <script src="tracker.js"></script>
+</body>
+</html>
