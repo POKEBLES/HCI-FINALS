@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>123Greetings - Event Calendar & Reminders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="events.css" />
+</head>
+<body class="events-page">
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <img src="./assets/123greet-logo.png" alt="123Greetings" class="brand__logo" />
+      </a>
+
+      <nav class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="#" class="nav__link">Categories</a>
+        <a href="#" class="nav__link">Trending</a>
+        <a href="events.html" class="nav__link nav__link--active">Reminders</a>
+        <a href="tracker.html" class="nav__link">Tracker</a>
+        <a href="#" class="nav__link nav__link--ai">AI Assistant</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="login.html" class="nav__action nav__action--ghost">Log in</a>
+        <a href="signup.html" class="nav__action">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="events-main">
+    <section class="events-hero card">
+      <h1>Event Calendar & Reminders</h1>
+      <p>Track upcoming celebrations, preview sample card ideas, and switch to calendar view to see events by date.</p>
+      <div class="events-hero-actions">
+        <button class="events-tab is-active" type="button" data-view="list">Event List</button>
+        <button class="events-tab" type="button" data-view="calendar">Calendar View</button>
+        <button class="btn-create-reminder" type="button">+ Create Reminder</button>
+      </div>
+    </section>
+
+    <!-- Create Reminder Modal -->
+    <div class="reminder-modal" id="reminderModal">
+      <div class="reminder-modal-content">
+        <div class="reminder-modal-header">
+          <h2>Create a New Reminder</h2>
+          <button class="reminder-modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <form id="reminderForm" class="reminder-form">
+          <div class="form-group">
+            <label for="reminderDate">Date</label>
+            <input type="date" id="reminderDate" name="date" required />
+          </div>
+          <div class="form-group">
+            <label for="reminderRecipient">Recipient Name</label>
+            <input type="text" id="reminderRecipient" name="recipient" placeholder="e.g., Mom, John" required />
+          </div>
+          <div class="form-group">
+            <label for="reminderEvent">Event Type</label>
+            <select id="reminderEvent" name="event" required>
+              <option value="">Select an event</option>
+              <option value="nowruz">Nowruz</option>
+              <option value="spring-equinox">Spring Equinox</option>
+              <option value="april-fools">April Fools' Day</option>
+              <option value="easter">Easter</option>
+              <option value="custom">Custom Date</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="reminderMessage">Message (optional)</label>
+            <textarea id="reminderMessage" name="message" placeholder="Add a personal note..."></textarea>
+          </div>
+          <div class="reminder-actions">
+            <button type="submit" class="btn-primary">Save Reminder</button>
+            <button type="button" class="btn-secondary" id="cancelReminder">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <section id="view-list" class="events-view is-active" aria-label="Event list and sample greeting cards">
+      <div class="events-layout">
+        <article class="events-panel card">
+          <div class="events-panel-head">
+            <h2>Upcoming Events</h2>
+            <a href="events.html" class="events-link">More</a>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date"><span>MAR</span><strong>20</strong></div>
+            <div class="event-content">
+              <h3>Nowruz</h3>
+              <p>Time to make new beginnings and share warm wishes with your loved ones.</p>
+              <a class="events-cta" href="event-details.html?event=nowruz">Explore cards</a>
+            </div>
+            <div class="event-card-placeholder">
+              <img src="assets/nowruz-card.jpg" alt="Nowruz sample card" />
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date"><span>MAR</span><strong>20</strong></div>
+            <div class="event-content">
+              <h3>Spring Equinox</h3>
+              <p>Celebrate fresh starts, blooming flowers, and brighter days ahead.</p>
+              <a class="events-cta" href="event-details.html?event=spring-equinox">Explore cards</a>
+            </div>
+            <div class="event-card-placeholder">
+              <img src="assets/spring-card.jpg" alt="Spring Equinox sample card" />
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date"><span>APR</span><strong>01</strong></div>
+            <div class="event-content">
+              <h3>April Fools' Day</h3>
+              <p>Send playful cards and fun greetings to friends and family.</p>
+              <a class="events-cta" href="event-details.html?event=april-fools">Explore cards</a>
+            </div>
+            <div class="event-card-placeholder">
+              <img src="assets/april-fools-card.jpg" alt="April Fools sample card" />
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date"><span>APR</span><strong>05</strong></div>
+            <div class="event-content">
+              <h3>Easter</h3>
+              <p>Share kind notes, cheerful art, and heartfelt Easter greetings.</p>
+              <a class="events-cta" href="event-details.html?event=easter">Explore cards</a>
+            </div>
+            <div class="event-card-placeholder">
+              <img src="assets/easter-card.jpg" alt="Easter sample card" />
+            </div>
+          </div>
+        </article>
+
+        <aside class="events-side card">
+          <h2>Sample Greeting Cards</h2>
+
+          <div class="sample-grid">
+            <div class="sample-card-placeholder"><img src="assets/sample-card-1.jpg" alt="Sample greeting card 1" /></div>
+            <div class="sample-card-placeholder"><img src="assets/sample-card-2.jpg" alt="Sample greeting card 2" /></div>
+            <div class="sample-card-placeholder"><img src="assets/sample-card-3.jpg" alt="Sample greeting card 3" /></div>
+            <div class="sample-card-placeholder"><img src="assets/sample-card-4.jpg" alt="Sample greeting card 4" /></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="reminders-section card">
+        <div class="reminders-header">
+          <h2>My Reminders</h2>
+          <span class="reminders-count">0</span>
+        </div>
+        <div id="remindersList" class="reminders-list">
+          <p class="reminders-empty">No reminders yet. Create one to get started!</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-calendar" class="events-view" aria-label="Calendar view of events">
+      <article class="calendar-panel card">
+        <div class="calendar-head">
+          <div>
+            <p class="events-chip">Calendar Option</p>
+            <h2>March 2026</h2>
+          </div>
+          <a href="events.html" class="events-link">Back to list</a>
+        </div>
+
+        <div class="calendar-grid" role="grid" aria-label="March 2026 event calendar">
+          <div class="calendar-day-name">Sun</div>
+          <div class="calendar-day-name">Mon</div>
+          <div class="calendar-day-name">Tue</div>
+          <div class="calendar-day-name">Wed</div>
+          <div class="calendar-day-name">Thu</div>
+          <div class="calendar-day-name">Fri</div>
+          <div class="calendar-day-name">Sat</div>
+
+          <div class="calendar-cell"></div>
+          <div class="calendar-cell"></div>
+          <div class="calendar-cell"></div>
+          <div class="calendar-cell"></div>
+          <div class="calendar-cell"></div>
+          <div class="calendar-cell">1</div>
+          <div class="calendar-cell">2</div>
+          <div class="calendar-cell">3</div>
+          <div class="calendar-cell">4</div>
+          <div class="calendar-cell">5</div>
+          <div class="calendar-cell">6</div>
+          <div class="calendar-cell">7</div>
+          <div class="calendar-cell">8</div>
+          <div class="calendar-cell">9</div>
+          <div class="calendar-cell">10</div>
+          <div class="calendar-cell">11</div>
+          <div class="calendar-cell">12</div>
+          <div class="calendar-cell">13</div>
+          <div class="calendar-cell">14</div>
+          <div class="calendar-cell">15</div>
+          <div class="calendar-cell">16</div>
+          <div class="calendar-cell">17</div>
+          <div class="calendar-cell">18</div>
+          <div class="calendar-cell">19</div>
+          <div class="calendar-cell has-event">
+            <span class="day-number">20</span>
+            <a class="day-event-thumb" href="event-details.html?event=nowruz">
+              <img src="assets/nowruz-card.jpg" alt="Nowruz Card" />
+              <span class="thumb-label">Nowruz Card</span>
+            </a>
+          </div>
+          <div class="calendar-cell has-event">
+            <span class="day-number">21</span>
+            <a class="day-event-thumb" href="event-details.html?event=spring-equinox">
+              <img src="assets/spring-card.jpg" alt="Spring Card" />
+              <span class="thumb-label">Spring Card</span>
+            </a>
+          </div>
+          <div class="calendar-cell">22</div>
+          <div class="calendar-cell">23</div>
+          <div class="calendar-cell">24</div>
+          <div class="calendar-cell">25</div>
+          <div class="calendar-cell">26</div>
+          <div class="calendar-cell">27</div>
+          <div class="calendar-cell">28</div>
+          <div class="calendar-cell">29</div>
+          <div class="calendar-cell">30</div>
+          <div class="calendar-cell">31</div>
+          <div class="calendar-cell"></div>
+          <div class="calendar-cell"></div>
+          <div class="calendar-cell"></div>
+          <div class="calendar-cell"></div>
+          <div class="calendar-cell"></div>
+        </div>
+
+        <div class="calendar-event-list">
+          <article class="calendar-event-row">
+            <div class="calendar-event-date">Mar 20</div>
+            <div class="calendar-event-meta">
+              <h3>Nowruz</h3>
+              <p>Celebrate new beginnings and share bright wishes.</p>
+            </div>
+            <a class="calendar-event-thumb" href="event-details.html?event=nowruz">View Event</a>
+          </article>
+
+          <article class="calendar-event-row">
+            <div class="calendar-event-date">Mar 21</div>
+            <div class="calendar-event-meta">
+              <h3>Spring Equinox</h3>
+              <p>Welcome spring with cheerful and uplifting greetings.</p>
+            </div>
+            <a class="calendar-event-thumb" href="event-details.html?event=spring-equinox">View Event</a>
+          </article>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      // Tab switching
+      var tabs = document.querySelectorAll('.events-tab');
+      var views = {
+        list: document.getElementById('view-list'),
+        calendar: document.getElementById('view-calendar')
+      };
+
+      function setView(view) {
+        var target = view === 'calendar' ? 'calendar' : 'list';
+
+        Object.keys(views).forEach(function (key) {
+          if (!views[key]) return;
+          views[key].classList.toggle('is-active', key === target);
+        });
+
+        tabs.forEach(function (tab) {
+          tab.classList.toggle('is-active', tab.getAttribute('data-view') === target);
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          setView(tab.getAttribute('data-view'));
+        });
+      });
+
+      var params = new URLSearchParams(window.location.search);
+      setView(params.get('view') === 'calendar' ? 'calendar' : 'list');
+
+      // Reminder Management
+      var reminderModal = document.getElementById('reminderModal');
+      var reminderForm = document.getElementById('reminderForm');
+      var createReminderBtn = document.querySelector('.btn-create-reminder');
+      var closeModalBtn = document.querySelector('.reminder-modal-close');
+      var cancelBtn = document.getElementById('cancelReminder');
+      var remindersList = document.getElementById('remindersList');
+      var remindersCount = document.querySelector('.reminders-count');
+      var eventNameMap = {
+        'nowruz': 'Nowruz',
+        'spring-equinox': 'Spring Equinox',
+        'april-fools': 'April Fools\' Day',
+        'easter': 'Easter',
+        'custom': 'Custom'
+      };
+
+      // Load reminders from localStorage
+      function loadReminders() {
+        var stored = localStorage.getItem('greetingReminders');
+        return stored ? JSON.parse(stored) : [];
+      }
+
+      // Save reminders to localStorage
+      function saveReminders(reminders) {
+        localStorage.setItem('greetingReminders', JSON.stringify(reminders));
+      }
+
+      // Render reminders list
+      function renderReminders() {
+        var reminders = loadReminders();
+        remindersCount.textContent = reminders.length;
+
+        if (reminders.length === 0) {
+          remindersList.innerHTML = '<p class="reminders-empty">No reminders yet. Create one to get started!</p>';
+          return;
+        }
+
+        remindersList.innerHTML = reminders.map(function (reminder, index) {
+          var reminderDate = new Date(reminder.date);
+          var formattedDate = reminderDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+          return `
+            <div class="reminder-item">
+              <div class="reminder-item-date">${formattedDate}</div>
+              <div class="reminder-item-content">
+                <h3>${reminder.recipient}</h3>
+                <p>${eventNameMap[reminder.event] || reminder.event}</p>
+                ${reminder.message ? '<p class="reminder-message">' + reminder.message + '</p>' : ''}
+              </div>
+              <button class="reminder-delete" data-index="${index}" aria-label="Delete reminder">✕</button>
+            </div>
+          `;
+        }).join('');
+
+        // Add delete handlers
+        document.querySelectorAll('.reminder-delete').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var index = parseInt(btn.getAttribute('data-index'));
+            var reminders = loadReminders();
+            reminders.splice(index, 1);
+            saveReminders(reminders);
+            renderReminders();
+          });
+        });
+      }
+
+      // Modal controls
+      function openModal() {
+        reminderModal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        reminderModal.classList.remove('is-open');
+        document.body.style.overflow = '';
+        reminderForm.reset();
+      }
+
+      createReminderBtn.addEventListener('click', openModal);
+      closeModalBtn.addEventListener('click', closeModal);
+      cancelBtn.addEventListener('click', closeModal);
+
+      reminderModal.addEventListener('click', function (e) {
+        if (e.target === reminderModal) {
+          closeModal();
+        }
+      });
+
+      // Form submission
+      reminderForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var formData = new FormData(reminderForm);
+        var newReminder = {
+          date: formData.get('date'),
+          recipient: formData.get('recipient'),
+          event: formData.get('event'),
+          message: formData.get('message'),
+          created: new Date().toISOString()
+        };
+
+        var reminders = loadReminders();
+        reminders.push(newReminder);
+        reminders.sort(function (a, b) {
+          return new Date(a.date) - new Date(b.date);
+        });
+        saveReminders(reminders);
+
+        closeModal();
+        renderReminders();
+      });
+
+      // Initial render
+      renderReminders();
+    })();
+  </script>
+</body>
+</html>
