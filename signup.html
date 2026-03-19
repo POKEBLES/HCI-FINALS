@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>123Greetings - Sign Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <img src="./assets/123greet-logo.png" alt="123Greetings" class="brand__logo" />
+      </a>
+
+      <nav class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="#" class="nav__link">Categories</a>
+        <a href="#" class="nav__link">Trending</a>
+        <a href="#" class="nav__link">Reminders</a>
+        <a href="tracker.html" class="nav__link">Tracker</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="login.html" class="nav__action nav__action--ghost">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="layout">
+      <div class="card">
+        <h1 class="card__title">Create your 123Greetings account</h1>
+        <p class="card__subtitle">Start sending personalized e-cards and smart reminders.</p>
+
+        <form class="form" autocomplete="off">
+          <div class="field">
+            <label class="label">Name <span class="req">*</span></label>
+            <input class="input" type="text" placeholder="Enter your full name" />
+          </div>
+
+          <div class="field">
+            <label class="label">Email <span class="req">*</span></label>
+            <input class="input input--error" type="email" placeholder="you@example.com" />
+            <p class="helper helper--error">Use a valid email address.</p>
+          </div>
+
+          <div class="field">
+            <div class="label-row">
+              <label class="label">Date of Birth</label>
+              <span class="muted">(optional)</span>
+            </div>
+
+            <div class="dob">
+              <div class="select">
+                <button class="select__btn" type="button">
+                  <span>Month</span>
+                  <span class="chev">▾</span>
+                </button>
+              </div>
+
+              <div class="select">
+                <button class="select__btn" type="button">
+                  <span>Day</span>
+                  <span class="chev">▾</span>
+                </button>
+              </div>
+
+              <div class="select">
+                <button class="select__btn" type="button">
+                  <span>Year</span>
+                  <span class="chev">▾</span>
+                </button>
+              </div>
+            </div>
+
+            <p class="helper">So friends can wish you on your birthday.</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Password <span class="req">*</span></label>
+            <div class="input-wrap">
+              <input id="pw" class="input" type="password" placeholder="Create a password" />
+              <button class="eye" type="button" aria-label="Toggle password">👁</button>
+            </div>
+            <p class="helper">Use at least 8 characters and one number.</p>
+          </div>
+
+          <div class="checks">
+            <label class="check">
+              <input type="checkbox" />
+              <span>Send me helpful account notifications.</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" />
+              <span>
+                I agree to the <a href="#" class="link">Terms of Use</a> and
+                <a href="#" class="link">Privacy Policy</a>.
+                <span class="req">*</span>
+              </span>
+            </label>
+          </div>
+
+          <button id="registerBtn" class="btn-primary" type="button">Create account</button>
+
+          <p class="bottom">
+            Already registered? <a href="login.html" class="link">Log in</a>
+          </p>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h2 class="benefits__title">Benefits of joining</h2>
+        <div class="benefit">
+          <div class="badge badge--violet">✓</div>
+          <p>Save favorite templates and recipient contacts</p>
+        </div>
+        <div class="benefit">
+          <div class="badge badge--blue">✓</div>
+          <p>Get event reminders and scheduled delivery options</p>
+        </div>
+        <div class="benefit">
+          <div class="badge badge--pink">✓</div>
+          <p>Customize cards with thoughtful messages and visual styles</p>
+        </div>
+      </aside>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      Account created successfully!
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
