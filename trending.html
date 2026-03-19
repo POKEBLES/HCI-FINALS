@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>123Greetings - Trending & Popular Feed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="trending.css" />
+</head>
+<body class="trending-page">
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <img src="./assets/123greet-logo.png" alt="123Greetings" class="brand__logo" />
+      </a>
+
+      <nav class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="categories.html" class="nav__link">Categories</a>
+        <a href="trending.html" class="nav__link nav__link--active">Trending</a>
+        <a href="events.html" class="nav__link">Reminders</a>
+        <a href="tracker.html" class="nav__link">Tracker</a>
+        <a href="#" class="nav__link nav__link--ai">AI Assistant</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="login.html" class="nav__action nav__action--ghost">Log in</a>
+        <a href="signup.html" class="nav__action">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="trending-main">
+    <section class="trending-hero card">
+      <h1>Trending &amp; Popular Feed</h1>
+      <p>Quickly scan what people are sharing now. Open any card for a full preview and start personalizing right away.</p>
+    </section>
+
+    <section class="trending-layout" aria-label="Trending and popular greeting cards">
+      <aside class="popular-now card">
+        <div class="popular-now__head">
+          <h2>Popular Now</h2>
+          <a href="categories.html">Browse all</a>
+        </div>
+
+        <ol class="popular-list">
+          <li><a href="personalization.html">Happy Birthday Sparkles</a></li>
+          <li><a href="personalization.html">Let's Laugh Day</a></li>
+          <li><a href="personalization.html">Saint Joseph's Day</a></li>
+          <li><a href="personalization.html">World Water Day</a></li>
+          <li><a href="personalization.html">Pet Love Notes</a></li>
+          <li><a href="personalization.html">At Work Cheers</a></li>
+          <li><a href="personalization.html">Flowers in Bloom</a></li>
+          <li><a href="personalization.html">Wedding Wishes</a></li>
+          <li><a href="personalization.html">Keep in Touch</a></li>
+          <li><a href="personalization.html">Party Invitations</a></li>
+          <li><a href="personalization.html">Thinking of You</a></li>
+          <li><a href="personalization.html">Sympathy &amp; Condolences</a></li>
+        </ol>
+      </aside>
+
+      <div class="feed-sections">
+        <section class="feed-block card" aria-labelledby="mostPopularTitle">
+          <header class="feed-block__head">
+            <h2 id="mostPopularTitle">Most Popular Cards</h2>
+            <div class="feed-controls">
+              <button class="feed-control" type="button" data-target="popularRail" data-dir="-1" aria-label="Scroll left">&#9664;</button>
+              <button class="feed-control" type="button" data-target="popularRail" data-dir="1" aria-label="Scroll right">&#9654;</button>
+            </div>
+          </header>
+
+          <div class="card-rail" id="popularRail">
+            <article class="feed-card">
+              <a href="personalization.html" class="feed-card__thumb">
+                <img src="assets/nowruz-card.jpg" alt="Warm wishes card" />
+                <span>Preview Card</span>
+                <h3>Send Warm Wishes for Happy Moments</h3>
+              </a>
+            </article>
+            <article class="feed-card">
+              <a href="personalization.html" class="feed-card__thumb">
+                <img src="assets/easter-card.jpg" alt="Easter card preview" />
+                <span>Preview Card</span>
+                <h3>Easter Love and Special Hugs</h3>
+              </a>
+            </article>
+            <article class="feed-card">
+              <a href="personalization.html" class="feed-card__thumb">
+                <img src="assets/sample-card-1.jpg" alt="Blessings card preview" />
+                <span>Preview Card</span>
+                <h3>Send Easter Blessings Across Miles</h3>
+              </a>
+            </article>
+            <article class="feed-card">
+              <a href="personalization.html" class="feed-card__thumb">
+                <img src="assets/sample-card-2.jpg" alt="Floral thank you card" />
+                <span>Preview Card</span>
+                <h3>Elegant Floral Thank You</h3>
+              </a>
+            </article>
+          </div>
+        </section>
+
+        <section class="feed-block card" aria-labelledby="latestTitle">
+          <header class="feed-block__head">
+            <h2 id="latestTitle">Latest Cards</h2>
+            <div class="feed-controls">
+              <button class="feed-control" type="button" data-target="latestRail" data-dir="-1" aria-label="Scroll left">&#9664;</button>
+              <button class="feed-control" type="button" data-target="latestRail" data-dir="1" aria-label="Scroll right">&#9654;</button>
+            </div>
+          </header>
+
+          <div class="card-rail" id="latestRail">
+            <article class="feed-card">
+              <a href="personalization.html" class="feed-card__thumb">
+                <img src="assets/sample-card-3.jpg" alt="Family easter card" />
+                <span>Preview Card</span>
+                <h3>Send Easter Wishes to Family and Friends</h3>
+              </a>
+            </article>
+            <article class="feed-card">
+              <a href="personalization.html" class="feed-card__thumb">
+                <img src="assets/april-fools-card.jpg" alt="Blessed easter card" />
+                <span>Preview Card</span>
+                <h3>Share Blessed Easter Wishes</h3>
+              </a>
+            </article>
+            <article class="feed-card">
+              <a href="personalization.html" class="feed-card__thumb">
+                <img src="assets/spring-card.jpg" alt="Fun easter card" />
+                <span>Preview Card</span>
+                <h3>Share a Fun Filled Spring Greeting</h3>
+              </a>
+            </article>
+            <article class="feed-card">
+              <a href="personalization.html" class="feed-card__thumb">
+                <img src="assets/sample-card-4.jpg" alt="Classic invitation card" />
+                <span>Preview Card</span>
+                <h3>Classic Invite for Special Occasions</h3>
+              </a>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var controls = document.querySelectorAll('.feed-control');
+      controls.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = btn.getAttribute('data-target');
+          var dir = Number(btn.getAttribute('data-dir')) || 1;
+          var rail = document.getElementById(target);
+          if (!rail) return;
+          rail.scrollBy({ left: dir * 260, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

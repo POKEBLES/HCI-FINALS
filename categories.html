@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>123Greetings - Browse Categories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="categories.css" />
+</head>
+<body class="categories-page">
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <img src="./assets/123greet-logo.png" alt="123Greetings" class="brand__logo" />
+      </a>
+
+      <nav class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="categories.html" class="nav__link nav__link--active">Categories</a>
+        <a href="trending.html" class="nav__link">Trending</a>
+        <a href="events.html" class="nav__link">Reminders</a>
+        <a href="tracker.html" class="nav__link">Tracker</a>
+        <a href="#" class="nav__link nav__link--ai">AI Assistant</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="login.html" class="nav__action nav__action--ghost">Log in</a>
+        <a href="signup.html" class="nav__action">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="categories-main">
+    <!-- Search and Filters Header -->
+    <div class="categories-header card">
+      <div class="search-bar">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Search greeting cards by keyword... (e.g., birthday, love, congratulations)"
+          autocomplete="off"
+        />
+        <button class="search-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="filter-tags" id="filterTags"></div>
+    </div>
+
+    <div class="categories-layout">
+      <!-- Sidebar with Filters -->
+      <aside class="categories-sidebar card">
+        <h2>Browse Categories</h2>
+        
+        <!-- Main Categories -->
+        <div class="category-group">
+          <button class="category-toggle" aria-expanded="false">
+            <span>Events & Celebrations</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="category-items">
+            <label class="category-checkbox">
+              <input type="checkbox" value="birthday" data-category="Events & Celebrations" />
+              <span>Birthday</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="wedding" data-category="Events & Celebrations" />
+              <span>Wedding</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="anniversary" data-category="Events & Celebrations" />
+              <span>Anniversary</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="engagement" data-category="Events & Celebrations" />
+              <span>Engagement</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="baby" data-category="Events & Celebrations" />
+              <span>Baby & Kids</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="graduation" data-category="Events & Celebrations" />
+              <span>Graduation</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Occasions -->
+        <div class="category-group">
+          <button class="category-toggle" aria-expanded="false">
+            <span>Occasions & Holidays</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="category-items">
+            <label class="category-checkbox">
+              <input type="checkbox" value="christmas" data-category="Occasions & Holidays" />
+              <span>Christmas</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="newyear" data-category="Occasions & Holidays" />
+              <span>New Year</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="valentines" data-category="Occasions & Holidays" />
+              <span>Valentine's Day</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="easter" data-category="Occasions & Holidays" />
+              <span>Easter</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="mothers-day" data-category="Occasions & Holidays" />
+              <span>Mother's Day</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="fathers-day" data-category="Occasions & Holidays" />
+              <span>Father's Day</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Sentiments & Messages -->
+        <div class="category-group">
+          <button class="category-toggle" aria-expanded="false">
+            <span>Sentiments & Messages</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="category-items">
+            <label class="category-checkbox">
+              <input type="checkbox" value="love" data-category="Sentiments & Messages" />
+              <span>Love & Romance</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="congratulations" data-category="Sentiments & Messages" />
+              <span>Congratulations</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="thank-you" data-category="Sentiments & Messages" />
+              <span>Thank You</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="sympathy" data-category="Sentiments & Messages" />
+              <span>Sympathy</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="get-well" data-category="Sentiments & Messages" />
+              <span>Get Well Soon</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="encouragement" data-category="Sentiments & Messages" />
+              <span>Encouragement</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Themes & Styles -->
+        <div class="category-group">
+          <button class="category-toggle" aria-expanded="false">
+            <span>Themes & Styles</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="category-items">
+            <label class="category-checkbox">
+              <input type="checkbox" value="elegant" data-category="Themes & Styles" />
+              <span>Elegant</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="modern" data-category="Themes & Styles" />
+              <span>Modern</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="funny" data-category="Themes & Styles" />
+              <span>Funny & Playful</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="floral" data-category="Themes & Styles" />
+              <span>Floral</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="minimalist" data-category="Themes & Styles" />
+              <span>Minimalist</span>
+            </label>
+            <label class="category-checkbox">
+              <input type="checkbox" value="vintage" data-category="Themes & Styles" />
+              <span>Vintage</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Quick Filters -->
+        <div class="quick-filters">
+          <button class="filter-btn" id="clearFilters">Clear All Filters</button>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <section class="categories-content">
+        <div class="results-header">
+          <h1 id="resultsTitle">All Greeting Cards</h1>
+          <span class="results-count">Showing <strong id="cardCount">12</strong> cards</span>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid">
+          <!-- Cards populated by JavaScript -->
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+          <p>No greeting cards found matching your criteria.</p>
+          <button class="filter-btn" id="resetSearch">Try Different Filters</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      // Sample card database
+      const allCards = [
+        { id: 1, title: "Happy Birthday", category: "birthday", theme: "elegant", sentiment: "congratulations", img: "assets/sample-card-1.jpg" },
+        { id: 2, title: "Love Forever", category: "valentines", theme: "elegant", sentiment: "love", img: "assets/sample-card-2.jpg" },
+        { id: 3, title: "Cheers to You", category: "birthday", theme: "modern", sentiment: "congratulations", img: "assets/spring-card.jpg" },
+        { id: 4, title: "New Beginnings", category: "birthday", theme: "modern", sentiment: "encouragement", img: "assets/nowruz-card.jpg" },
+        { id: 5, title: "Wedding Bliss", category: "wedding", theme: "elegant", sentiment: "love", img: "assets/sample-card-3.jpg" },
+        { id: 6, title: "Just Laughs", category: "birthday", theme: "funny", sentiment: "funny", img: "assets/april-fools-card.jpg" },
+        { id: 7, title: "Easter Celebration", category: "easter", theme: "floral", sentiment: "congratulations", img: "assets/easter-card.jpg" },
+        { id: 8, title: "Heartfelt Thanks", category: "thank-you", theme: "elegant", sentiment: "thank-you", img: "assets/sample-card-4.jpg" },
+        { id: 9, title: "Sweet Dreams", category: "get-well", theme: "modern", sentiment: "encouragement", img: "assets/sample-card-2.jpg" },
+        { id: 10, title: "Congrats!", category: "graduation", theme: "modern", sentiment: "congratulations", img: "assets/spring-card.jpg" },
+        { id: 11, title: "With Love", category: "anniversary", theme: "elegant", sentiment: "love", img: "assets/nowruz-card.jpg" },
+        { id: 12, title: "You're Amazing", category: "encouragement", theme: "minimalist", sentiment: "encouragement", img: "assets/easter-card.jpg" }
+      ];
+
+      const DOM = {
+        searchInput: document.getElementById("searchInput"),
+        searchBtn: document.querySelector(".search-btn"),
+        cardsGrid: document.getElementById("cardsGrid"),
+        filterTags: document.getElementById("filterTags"),
+        noResults: document.getElementById("noResults"),
+        resultsTitle: document.getElementById("resultsTitle"),
+        cardCount: document.getElementById("cardCount"),
+        clearFilters: document.getElementById("clearFilters"),
+        resetSearch: document.getElementById("resetSearch"),
+        categoryToggles: document.querySelectorAll(".category-toggle"),
+        categoryCheckboxes: document.querySelectorAll(".category-checkbox input")
+      };
+
+      let activeFilters = {
+        search: "",
+        categories: []
+      };
+
+      // Toggle category sections
+      DOM.categoryToggles.forEach(toggle => {
+        toggle.addEventListener("click", function () {
+          const isExpanded = this.getAttribute("aria-expanded") === "true";
+          this.setAttribute("aria-expanded", !isExpanded);
+          this.nextElementSibling.classList.toggle("is-open");
+        });
+      });
+
+      // Handle category checkboxes
+      DOM.categoryCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", function () {
+          if (this.checked) {
+            activeFilters.categories.push(this.value);
+          } else {
+            activeFilters.categories = activeFilters.categories.filter(c => c !== this.value);
+          }
+          renderCards();
+          updateFilterTags();
+        });
+      });
+
+      // Search functionality
+      DOM.searchInput.addEventListener("input", function (e) {
+        activeFilters.search = e.target.value.toLowerCase();
+        renderCards();
+      });
+
+      DOM.searchBtn.addEventListener("click", () => {
+        renderCards();
+      });
+
+      // Clear filters
+      DOM.clearFilters.addEventListener("click", () => {
+        activeFilters = { search: "", categories: [] };
+        DOM.searchInput.value = "";
+        DOM.categoryCheckboxes.forEach(cb => cb.checked = false);
+        DOM.categoryToggles.forEach(toggle => {
+          toggle.setAttribute("aria-expanded", false);
+          toggle.nextElementSibling.classList.remove("is-open");
+        });
+        renderCards();
+        updateFilterTags();
+      });
+
+      DOM.resetSearch.addEventListener("click", () => {
+        DOM.clearFilters.click();
+      });
+
+      // Filter and render cards
+      function renderCards() {
+        let filtered = allCards;
+
+        // Apply search filter
+        if (activeFilters.search) {
+          filtered = filtered.filter(card =>
+            card.title.toLowerCase().includes(activeFilters.search) ||
+            card.category.toLowerCase().includes(activeFilters.search) ||
+            card.theme.toLowerCase().includes(activeFilters.search) ||
+            card.sentiment.toLowerCase().includes(activeFilters.search)
+          );
+        }
+
+        // Apply category filters
+        if (activeFilters.categories.length > 0) {
+          filtered = filtered.filter(card =>
+            activeFilters.categories.includes(card.category) ||
+            activeFilters.categories.includes(card.theme) ||
+            activeFilters.categories.includes(card.sentiment)
+          );
+        }
+
+        // Update display
+        DOM.cardCount.textContent = filtered.length;
+        DOM.noResults.style.display = filtered.length === 0 ? "block" : "none";
+
+        // Update title based on filters
+        if (activeFilters.search) {
+          DOM.resultsTitle.textContent = 'Search Results for "' + activeFilters.search + '"';
+        } else if (activeFilters.categories.length > 0) {
+          DOM.resultsTitle.textContent = activeFilters.categories[0].charAt(0).toUpperCase() + activeFilters.categories[0].slice(1) + " Cards";
+        } else {
+          DOM.resultsTitle.textContent = "All Greeting Cards";
+        }
+
+        // Render cards
+        DOM.cardsGrid.innerHTML = filtered.map(card => `
+          <div class="card-item">
+            <div class="card-image">
+              <img src="${card.img}" alt="${card.title}" />
+              <button class="card-action">Use Card</button>
+            </div>
+            <h3 class="card-title">${card.title}</h3>
+            <p class="card-meta">${card.category}</p>
+          </div>
+        `).join("");
+
+        // Add click handlers to "Use Card" buttons
+        document.querySelectorAll(".card-action").forEach(btn => {
+          btn.addEventListener("click", () => {
+            window.location.href = "personalization.html";
+          });
+        });
+      }
+
+      // Update filter tag display
+      function updateFilterTags() {
+        const tags = [...activeFilters.categories];
+        DOM.filterTags.innerHTML = tags.map(tag => `
+          <span class="filter-tag">
+            ${tag}
+            <button class="tag-remove" data-value="${tag}">&times;</button>
+          </span>
+        `).join("");
+
+        document.querySelectorAll(".tag-remove").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            const value = e.currentTarget.getAttribute("data-value");
+            const checkbox = document.querySelector(`input[value="${value}"]`);
+            if (checkbox) {
+              checkbox.checked = false;
+              checkbox.dispatchEvent(new Event("change"));
+            }
+          });
+        });
+      }
+
+      // Initial render
+      renderCards();
+    })();
+  </script>
+</body>
+</html>
