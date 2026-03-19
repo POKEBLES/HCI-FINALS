@@ -1,0 +1,14 @@
+<svg width="680" height="360" viewBox="0 0 680 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="10" y1="0" x2="670" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF1F2"/>
+      <stop offset="1" stop-color="#FDF4FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="680" height="360" rx="24" fill="url(#g)"/>
+  <circle cx="596" cy="74" r="56" fill="#FBCFE8"/>
+  <circle cx="88" cy="304" r="72" fill="#EDE9FE"/>
+  <text x="56" y="116" fill="#BE185D" font-size="20" font-family="Nunito, sans-serif" font-weight="800">BIRTHDAY</text>
+  <text x="56" y="192" fill="#1F2937" font-size="62" font-family="Baloo 2, Nunito, sans-serif" font-weight="700">Blossom</text>
+  <text x="56" y="246" fill="#475569" font-size="24" font-family="Nunito, sans-serif">Bright and joyful</text>
+</svg>

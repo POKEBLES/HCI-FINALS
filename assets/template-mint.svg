@@ -1,0 +1,14 @@
+<svg width="680" height="360" viewBox="0 0 680 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="680" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ECFEFF"/>
+      <stop offset="1" stop-color="#F0FDF4"/>
+    </linearGradient>
+  </defs>
+  <rect width="680" height="360" rx="24" fill="url(#g)"/>
+  <circle cx="548" cy="72" r="58" fill="#A7F3D0"/>
+  <circle cx="104" cy="312" r="82" fill="#BAE6FD"/>
+  <text x="56" y="116" fill="#0F766E" font-size="20" font-family="Nunito, sans-serif" font-weight="800">THANK YOU</text>
+  <text x="56" y="192" fill="#1F2937" font-size="62" font-family="Baloo 2, Nunito, sans-serif" font-weight="700">Mint</text>
+  <text x="56" y="246" fill="#475569" font-size="24" font-family="Nunito, sans-serif">Fresh and graceful</text>
+</svg>

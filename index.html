@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>123Greetings - Sign Up (Redesign)</title>
+  <title>123Greetings - Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="index.css" />
 </head>
-<body>
+<body class="home-page">
   <!-- NAVBAR -->
   <header class="nav">
     <div class="nav__inner">
@@ -26,211 +27,121 @@
         <a href="#" class="nav__link nav__link--ai">✦ AI Assistant</a>
       </nav>
 
-      <a href="login.html" class="nav__action">Log in</a>
+      <div class="nav__actions">
+        <a href="login.html" class="nav__action nav__action--ghost">Log in</a>
+        <a href="signup.html" class="nav__action">Sign up</a>
+      </div>
     </div>
   </header>
 
   <!-- PAGE -->
   <main class="page">
-    <section class="layout">
-      <!-- LEFT: SIGN UP CARD -->
-      <div class="card">
-        <h1 class="card__title">Create your 123Greetings account</h1>
-        <p class="card__subtitle">Send e-cards and get event reminders.</p>
-
-        <form class="form" autocomplete="off">
-          <div class="field">
-            <label class="label">Name <span class="req">*</span></label>
-            <input class="input" type="text" placeholder="Enter your full name" />
-          </div>
-
-          <div class="field">
-            <label class="label">Email <span class="req">*</span></label>
-            <input class="input input--error" type="email" placeholder="you@example.com" />
-            <p class="helper helper--error">Please enter a valid email.</p>
-          </div>
-
-          <div class="field">
-            <div class="label-row">
-              <label class="label">Date of Birth</label>
-              <span class="muted">(optional)</span>
-            </div>
-
-            <div class="dob">
-              <div class="select">
-                <button class="select__btn" type="button">
-                  <span>Month</span>
-                  <span class="chev">▾</span>
-                </button>
-              </div>
-
-              <div class="select">
-                <button class="select__btn" type="button">
-                  <span>Day</span>
-                  <span class="chev">▾</span>
-                </button>
-              </div>
-
-              <div class="select">
-                <button class="select__btn" type="button">
-                  <span>Year</span>
-                  <span class="chev">▾</span>
-                </button>
-              </div>
-            </div>
-
-            <p class="helper">So friends can wish you on your birthday.</p>
-          </div>
-
-          <div class="field">
-            <label class="label">Password <span class="req">*</span></label>
-            <div class="input-wrap">
-              <input id="pw" class="input" type="password" placeholder="Create a password" />
-              <button class="eye" type="button" aria-label="Toggle password">
-                👁
-              </button>
-            </div>
-            <p class="helper">At least 8 characters, with 1 number.</p>
-          </div>
-
-          <div class="checks">
-            <label class="check">
-              <input type="checkbox" />
-              <span>Send me registration-related notifications.</span>
-            </label>
-
-            <label class="check">
-              <input type="checkbox" />
-              <span>
-                I agree to the <a href="#" class="link">Terms of Use</a> and
-                <a href="#" class="link">Privacy Policy</a>.
-                <span class="req">*</span>
-              </span>
-            </label>
-          </div>
-
-          <button class="btn-primary" type="button">Register</button>
-
-          <p class="bottom">
-            Already registered? <a href="login.html" class="link">Log in</a>
-          </p>
-        </form>
+    <section class="home-hero">
+      <div class="home-hero__copy">
+        <div class="home-hero__visual-wrap">
+          <img class="home-hero__visual" src="assets/hero-cards.svg" alt="Preview collage of greeting card styles" />
+        </div>
+        <p class="home-hero__eyebrow">Greeting Card Studio</p>
+        <h1 class="home-hero__title">Create Meaningful Digital Greetings in Minutes</h1>
+        <p class="home-hero__subtitle">
+          Browse curated templates, explore popular picks, and personalize your card with confidence.
+        </p>
+        <div class="home-hero__actions">
+          <a href="#designs" class="btn-primary home-hero__btn">Browse templates</a>
+          <a href="signup.html" class="btn-secondary home-hero__btn">Create an account</a>
+        </div>
       </div>
-
-      <!-- RIGHT: BENEFITS -->
-      <aside class="benefits">
-        <h2 class="benefits__title">What you can do with 123Greetings</h2>
-
-        <div class="benefit">
-          <div class="badge badge--violet">
-            <svg class="benefit__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3.5" y="5" width="17" height="15" rx="3"></rect>
-              <path d="M8 3.5v3M16 3.5v3M3.5 9.5h17"></path>
-            </svg>
-          </div>
-          <p>Get birthday and event reminders</p>
-        </div>
-
-        <div class="benefit">
-          <div class="badge badge--rose">
-            <svg class="benefit__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6 4.5h10.5a2 2 0 0 1 2 2V19H8a2 2 0 0 0-2 2V6.5a2 2 0 0 1 2-2z"></path>
-              <path d="M8 8.5h7M8 12h7M8 15.5h5"></path>
-            </svg>
-          </div>
-          <p>Save contacts in your address book</p>
-        </div>
-
-        <div class="benefit">
-          <div class="badge badge--blue">
-            <svg class="benefit__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6.5 9a5.5 5.5 0 1 1 11 0v3.5l1.5 2H5l1.5-2z"></path>
-              <path d="M10 18a2 2 0 0 0 4 0"></path>
-            </svg>
-          </div>
-          <p>Track and manage your e-cards</p>
-        </div>
-
-        <div class="benefit">
-          <div class="badge badge--green">
-            <svg class="benefit__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 19.5h16"></path>
-              <path d="M6.5 15.5l3-3 2.5 2 5-5"></path>
-            </svg>
-          </div>
-          <p>Share activity updates</p>
-        </div>
-
-        <div class="benefit">
-          <div class="badge badge--yellow">
-            <svg class="benefit__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 4a8 8 0 1 0 0 16h1.2a2.3 2.3 0 0 0 0-4.6h-.4A2.8 2.8 0 0 1 10 12.6 2.8 2.8 0 0 1 12.8 9h2.2A3 3 0 0 0 18 6a2 2 0 0 0-2-2z"></path>
-              <circle cx="7.8" cy="10.2" r="0.9" fill="currentColor" stroke="none"></circle>
-              <circle cx="10.4" cy="8.4" r="0.9" fill="currentColor" stroke="none"></circle>
-              <circle cx="13.2" cy="8" r="0.9" fill="currentColor" stroke="none"></circle>
-            </svg>
-          </div>
-          <p>Personalize e-cards with your own message &amp; style</p>
-        </div>
-
-        <div class="benefit">
-          <div class="badge badge--pink">
-            <svg class="benefit__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 20l3.5-.7L18 8.8a2 2 0 0 0 0-2.8l-.9-.9a2 2 0 0 0-2.8 0L3.8 15.6 3 19.9z"></path>
-              <path d="M13.5 5.9l4.6 4.6"></path>
-            </svg>
-          </div>
-          <p>Design cards with the interactive card editor</p>
-        </div>
-
-        <div class="benefit">
-          <div class="badge badge--blue">
-            <svg class="benefit__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M12 8v4.5l3 1.8"></path>
-            </svg>
-          </div>
-          <p>Schedule card delivery for the perfect moment</p>
-        </div>
-
-        <div class="benefit">
-          <button
-            id="profileShortcutTrigger"
-            class="badge badge--violet profile-shortcut-trigger"
-            type="button"
-            aria-controls="profileShortcutBtn"
-            aria-expanded="false"
-            aria-label="Show profile shortcut"
-          >
-            <svg class="benefit__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="8.3" r="3.2"></circle>
-              <path d="M5.5 19a6.5 6.5 0 0 1 13 0"></path>
-            </svg>
-          </button>
-          <div class="benefit__copy">
-            <p>Manage your profile and preferences</p>
-            <button id="profileShortcutBtn" class="profile-shortcut-btn" type="button" hidden>
-              Open profile page
-            </button>
-          </div>
-        </div>
-
-        <div class="benefit">
-          <div class="badge badge--ai">
-            <svg class="benefit__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 4l1.4 3.6L17 9l-3.6 1.4L12 14l-1.4-3.6L7 9l3.6-1.4L12 4z"></path>
-              <path d="M18.5 14.5l.8 2 .8-2 2-.8-2-.8-.8-2-.8 2-2 .8z"></path>
-            </svg>
-          </div>
-          <p>Use AI to generate card designs and get help instantly</p>
-        </div>
-      </aside>
+      <article class="home-hero__reminder card">
+        <p class="home-chip">Event Calendar &amp; Reminders</p>
+        <h2 class="benefits__title">Upcoming events</h2>
+        <ul class="home-reminders">
+          <li><span>Apr 02</span> Mom's Birthday</li>
+          <li><span>Apr 08</span> Team Appreciation Day</li>
+          <li><span>Apr 12</span> Wedding Anniversary</li>
+        </ul>
+        <button class="btn-secondary" type="button">View calendar</button>
+      </article>
     </section>
 
-    <!-- OPTIONAL UI-ONLY TOAST -->
-    <div class="toast" id="toast" role="status" aria-live="polite">
-      Account created successfully!
-    </div>
+    <section class="home-tools card" aria-label="Categorization and Search">
+      <div class="home-tools__search">
+        <label class="label" for="homeSearch">Search cards</label>
+        <input id="homeSearch" class="input" type="text" placeholder="Try birthday, thank you, floral, elegant" />
+      </div>
+      <div class="home-tools__chips" aria-label="Popular categories">
+        <button class="home-category" type="button">Birthday</button>
+        <button class="home-category" type="button">Thank You</button>
+        <button class="home-category" type="button">Anniversary</button>
+        <button class="home-category" type="button">Get Well</button>
+        <button class="home-category" type="button">Congrats</button>
+      </div>
+    </section>
+
+    <section class="home-trending card" aria-labelledby="trendingTitle">
+      <div class="home-section-head">
+        <h2 id="trendingTitle" class="benefits__title">Trending &amp; Popular Feed</h2>
+        <p class="muted">Most shared this week</p>
+      </div>
+      <div class="trending-strip">
+        <article class="trend-pill">
+          <strong>Birthday Spark</strong>
+          <span>4.8k sends</span>
+        </article>
+        <article class="trend-pill">
+          <strong>Floral Thanks</strong>
+          <span>3.9k sends</span>
+        </article>
+        <article class="trend-pill">
+          <strong>Warm Wishes</strong>
+          <span>3.2k sends</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="designs" class="home-designs" aria-labelledby="designsTitle">
+      <div class="home-section-head">
+        <h2 id="designsTitle" class="personalization__title">Choose a Card Design</h2>
+        <p class="personalization__subtitle">Select a template to start personalizing your card.</p>
+      </div>
+
+      <div class="design-grid">
+        <article class="design-card">
+          <img class="design-card__image" src="assets/template-blossom.svg" alt="Blossom Glow card preview" />
+          <div class="design-card__preview ecard ecard--blossom">
+            <p class="ecard__occasion">Birthday wishes</p>
+            <h3 class="ecard__heading">Blossom Glow</h3>
+          </div>
+          <a class="btn-primary design-pick" href="personalization.html?theme=blossom&amp;occasion=Birthday">Personalize this template</a>
+        </article>
+
+        <article class="design-card">
+          <img class="design-card__image" src="assets/template-sunrise.svg" alt="Sunrise Pop card preview" />
+          <div class="design-card__preview ecard ecard--sunrise">
+            <p class="ecard__occasion">Anniversary cheer</p>
+            <h3 class="ecard__heading">Sunrise Pop</h3>
+          </div>
+          <a class="btn-primary design-pick" href="personalization.html?theme=sunrise&amp;occasion=Anniversary">Personalize this template</a>
+        </article>
+
+        <article class="design-card">
+          <img class="design-card__image" src="assets/template-mint.svg" alt="Mint Breeze card preview" />
+          <div class="design-card__preview ecard ecard--mint">
+            <p class="ecard__occasion">Thank you note</p>
+            <h3 class="ecard__heading">Mint Breeze</h3>
+          </div>
+          <a class="btn-primary design-pick" href="personalization.html?theme=mint&amp;occasion=Thank%20You">Personalize this template</a>
+        </article>
+
+        <article class="design-card">
+          <img class="design-card__image" src="assets/template-night.svg" alt="Night Spark card preview" />
+          <div class="design-card__preview ecard ecard--night">
+            <p class="ecard__occasion">Congratulations</p>
+            <h3 class="ecard__heading">Night Spark</h3>
+          </div>
+          <a class="btn-primary design-pick" href="personalization.html?theme=night&amp;occasion=Congratulations">Personalize this template</a>
+        </article>
+      </div>
+    </section>
   </main>
 
   <script src="script.js"></script>
