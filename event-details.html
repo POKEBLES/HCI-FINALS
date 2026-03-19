@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>123Greetings - Event Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="event-details.css" />
+</head>
+<body class="event-details-page">
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <img src="./assets/123greet-logo.png" alt="123Greetings" class="brand__logo" />
+      </a>
+
+      <nav class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="#" class="nav__link">Categories</a>
+        <a href="#" class="nav__link">Trending</a>
+        <a href="events.html" class="nav__link nav__link--active">Reminders</a>
+        <a href="tracker.html" class="nav__link">Tracker</a>
+        <a href="#" class="nav__link nav__link--ai">AI Assistant</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="login.html" class="nav__action nav__action--ghost">Log in</a>
+        <a href="signup.html" class="nav__action">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="event-details-main">
+    <section class="event-banner card">
+      <p class="event-chip">Event Cards</p>
+      <h1 id="eventName">Nowruz</h1>
+      <p id="eventDescription">Select and personalize a greeting card for this event.</p>
+      <div class="event-banner-actions">
+        <a class="btn-secondary" href="events.html">Back to Events</a>
+        <a class="btn-secondary" href="events.html?view=calendar">View Calendar</a>
+      </div>
+    </section>
+
+    <section class="event-grid-wrap card" aria-label="Sample greeting cards for selected event">
+      <div class="event-grid-head">
+        <h2>Sample Greeting Cards</h2>
+        <p class="muted" id="eventDate">Date: Mar 20</p>
+      </div>
+
+      <div id="eventCardGrid" class="event-card-grid">
+        <article class="event-card">
+          <div class="event-image-placeholder">assets/placeholder-1.jpg</div>
+          <div class="event-card-body">
+            <h3>Card Style 1</h3>
+            <p>Replace this placeholder with your own card preview image.</p>
+            <a class="btn-primary" href="personalization.html?occasion=Birthday">Create Card</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var DATA = {
+        'nowruz': {
+          name: 'Nowruz',
+          date: 'Mar 20',
+          description: 'Celebrate new beginnings and send uplifting greetings for the Persian New Year.',
+          occasion: 'Congratulations',
+          cards: [
+            'assets/nowruz-card-1.jpg',
+            'assets/nowruz-card-2.jpg',
+            'assets/nowruz-card-3.jpg',
+            'assets/nowruz-card-4.jpg'
+          ]
+        },
+        'spring-equinox': {
+          name: 'Spring Equinox',
+          date: 'Mar 20',
+          description: 'Welcome the season with fresh, bright card designs full of warmth and color.',
+          occasion: 'Thank You',
+          cards: [
+            'assets/spring-card-1.jpg',
+            'assets/spring-card-2.jpg',
+            'assets/spring-card-3.jpg',
+            'assets/spring-card-4.jpg'
+          ]
+        },
+        'april-fools': {
+          name: "April Fools' Day",
+          date: 'Apr 01',
+          description: 'Share fun and playful cards for a day full of jokes and laughter.',
+          occasion: 'Congratulations',
+          cards: [
+            'assets/april-fools-card-1.jpg',
+            'assets/april-fools-card-2.jpg',
+            'assets/april-fools-card-3.jpg',
+            'assets/april-fools-card-4.jpg'
+          ]
+        },
+        'easter': {
+          name: 'Easter',
+          date: 'Apr 05',
+          description: 'Send thoughtful Easter wishes with soft, joyful greeting card designs.',
+          occasion: 'Birthday',
+          cards: [
+            'assets/easter-card-1.jpg',
+            'assets/easter-card-2.jpg',
+            'assets/easter-card-3.jpg',
+            'assets/easter-card-4.jpg'
+          ]
+        }
+      };
+
+      var params = new URLSearchParams(window.location.search);
+      var key = params.get('event') || 'nowruz';
+      var model = DATA[key] || DATA['nowruz'];
+
+      var eventName = document.getElementById('eventName');
+      var eventDescription = document.getElementById('eventDescription');
+      var eventDate = document.getElementById('eventDate');
+      var eventCardGrid = document.getElementById('eventCardGrid');
+
+      if (eventName) eventName.textContent = model.name;
+      if (eventDescription) eventDescription.textContent = model.description;
+      if (eventDate) eventDate.textContent = 'Date: ' + model.date;
+
+      if (!eventCardGrid) return;
+
+      var cardsMarkup = model.cards.map(function (path, index) {
+        return [
+          '<article class="event-card">',
+            '<div class="event-image-placeholder">' + path + '</div>',
+            '<div class="event-card-body">',
+              '<h3>' + model.name + ' Card ' + (index + 1) + '</h3>',
+              '<p>Place your preview image at ' + path + ' in the assets folder.</p>',
+              '<a class="btn-primary" href="personalization.html?occasion=' + encodeURIComponent(model.occasion) + '">Create Card</a>',
+            '</div>',
+          '</article>'
+        ].join('');
+      }).join('');
+
+      eventCardGrid.innerHTML = cardsMarkup;
+    })();
+  </script>
+</body>
+</html>
